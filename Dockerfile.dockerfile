@@ -1,4 +1,12 @@
-FROM eclipse-temurin:21-jdk
+FROM openjdk:11-jre-slim
+
 WORKDIR /app
-COPY target/simple-java-app-1.0.jar app.jar
-CMD ["java", "-jar", "app.jar"]
+
+
+COPY target/*.jar app.jar
+
+
+EXPOSE 8086
+
+
+ENTRYPOINT ["java", "-jar", "app.jar"]
