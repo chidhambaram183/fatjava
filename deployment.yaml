@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: java-app
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: java-app
@@ -14,9 +14,9 @@ spec:
     spec:
       containers:
       - name: java-app
-        image: chidhambaramb/java-app:latest
+        image: chidhambaramb/java-app:latest  
         ports:
-        - containerPort: 8080
+        - containerPort: 8086
 
 ---
 apiVersion: v1
@@ -28,6 +28,6 @@ spec:
   selector:
     app: java-app
   ports:
-    - port: 80
-      targetPort: 8086
-      nodePort: 30007
+  - port: 80
+    targetPort: 8086
+    nodePort: 30008
